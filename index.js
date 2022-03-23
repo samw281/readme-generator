@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { prompt } = require("inquirer");
+const inquirer = require("inquirer");
 const genMD = require("./utils/generateMarkdown");
 
 const questions = [
@@ -32,7 +32,8 @@ const questions = [
   {
     type: "input",
     name: "install",
-    message: "Please provide installation instructions for your project(Required)",
+    message:
+      "Please provide installation instructions for your project(Required)",
     validate: (installInput) => {
       if (installInput) {
         return true;
@@ -58,7 +59,8 @@ const questions = [
   {
     type: "checkbox",
     name: "license",
-    message: "Please select the license(s) used. If none please select 'None'(Required)",
+    message:
+      "Please select the license(s) used. If none please select 'None'(Required)",
     choices: ["MIT", "Mozilla", "Apache", "GNU", "BSD", "None"],
     validate: (licenseInput) => {
       if (licenseInput) {
@@ -85,7 +87,8 @@ const questions = [
   {
     type: "input",
     name: "tests",
-    message: "Please provide instructions on how to test your project(Required)",
+    message:
+      "Please provide instructions on how to test your project(Required)",
     validate: (testInput) => {
       if (testInput) {
         return true;
@@ -95,15 +98,47 @@ const questions = [
       }
     },
   },
+  {
+    type: "input",
+    name: "email",
+    message: "Please provide your email address(Required)",
+    validate: (emailInput) => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log("Please enter your email address!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "Please provide your GitHub username(Required)",
+    validate: (githubInput) => {
+      if (githubInput) {
+        return true;
+      } else {
+        console.log("Please enter your GitHub username!");
+        return false;
+      }
+    },
+  },
 ];
 
-prompt(questions).then((ans) => console.log(genMD(ans)));
+// inquirer.prompt(questions).then((answers) => console.log(genMD(answers)));
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data)
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((answers) => {
+    writeToFile("README.md", genMD(answers))
+  });
+}
 
 // Function call to initialize app
 init();
