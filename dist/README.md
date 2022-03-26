@@ -1,9 +1,9 @@
-# a
+# Project Name
   
   ![Badge](https://img.shields.io/badge/licence-MIT-green)
 
   ## Description
-  a
+  This is a description of the project
 
   ## Table of Contents
   * [Installation](#installation)
@@ -14,13 +14,13 @@
   * [Questions](#questions)
 
   ## Installation
-  a
+  These are installation instructions for the project
 
   ## Usage 
-  a
+  These are usage instructions for the project
 
   ## Contributions
-  sam williams
+  Contributing User(s)
 
   
   ## License 
@@ -28,7 +28,7 @@
   
 
   ## Testing
-  a
+  These are instructions on how to test the project
 
   ## Questions
   If you have any further questions please feel free to reach out to me via [email](mailto:samwilliams281@gmail.com)  <br>  

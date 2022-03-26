@@ -126,8 +126,6 @@ const questions = [
   },
 ];
 
-// inquirer.prompt(questions).then((answers) => console.log(genMD(answers)));
-
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
   fs.writeFileSync(fileName, data)
